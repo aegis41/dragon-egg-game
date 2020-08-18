@@ -1,13 +1,13 @@
 import React from 'react';
 
-class Egg extends React.Component {
+class StatBlock extends React.Component {
     render() {
         return (
             <div>
-                The Egg Goes Here
+                The StatBlock Goes Here
             </div>
         );
     }
 }
 
-export default Egg;
+export default StatBlock;

@@ -1,13 +1,13 @@
 import React from 'react';
 
-class Egg extends React.Component {
+class ExtraSpace extends React.Component {
     render() {
         return (
             <div>
-                The Egg Goes Here
+                The ExtraSpace Goes Here
             </div>
         );
     }
 }
 
-export default Egg;
+export default ExtraSpace;
