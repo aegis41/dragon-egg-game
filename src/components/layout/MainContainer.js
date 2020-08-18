@@ -8,10 +8,18 @@ export class MainContainer extends Component {
         return (
             <Container fluid>
                 <Row>
-                    <Col> 1 of 4</Col>
-                    <Col> 2 of 4</Col>
-                    <Col> 3 of 4</Col>
-                    <Col> 4 of 4</Col>
+                    <Col>Turn x of n</Col>
+                    <Col>% Fire</Col>
+                    <Col>% Water</Col>
+                    <Col>% Earth</Col>
+                    <Col>% Air</Col>
+                </Row>
+                <Row>
+                    <Col> 1 of 5</Col>
+                    <Col> 2 of 5</Col>
+                    <Col> 3 of 5</Col>
+                    <Col> 4 of 5</Col>
+                    <Col> 5 of 5</Col>
                 </Row>
             </Container>
         )
