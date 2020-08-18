@@ -13,7 +13,7 @@ export class MainContainer extends Component {
             <Container fluid>
                 <Row>
                     <Col>
-                        <Egg></Egg>
+                        <Egg label="Your Egg" />
                     </Col>
                     <Col>
                         <Row>
@@ -26,19 +26,19 @@ export class MainContainer extends Component {
                 </Row>
                 <Row>
                     <Col>
-                        <ElementalButton></ElementalButton>
+                        <ElementalButton type="Fire" />
                     </Col>
                     <Col>
-                        <ElementalButton></ElementalButton>
+                        <ElementalButton type="Water" />
                     </Col>
                     <Col>
-                        <ElementalButton></ElementalButton>
+                        <ElementalButton type="Earth" />
                     </Col>
                     <Col>
-                        <ElementalButton></ElementalButton>
+                        <ElementalButton type="Air" />
                     </Col>
                     <Col>
-                        <ElementalButton></ElementalButton>
+                        <ElementalButton type="Magic" />
                     </Col>
                 </Row>
             </Container>
