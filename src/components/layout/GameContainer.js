@@ -27,11 +27,7 @@ export class GameContainer extends Component {
         const updatePercents = () => {
             elementList.forEach(element => {
                 let elementData = gameData.elements[element];
-                console.log(gameData.day);
-                console.log(elementData.days);
-                console.log(elementData.days / gameData.day);
                 elementData.percent = elementData.days > 0 ? elementData.days / gameData.day : 0;
-                console.log(JSON.stringify(elementData));
             })
         }
 
