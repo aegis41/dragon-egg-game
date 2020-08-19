@@ -6,31 +6,63 @@ import Egg from '../Egg';
 import ElementalButton from '../ElementalButton';
 import StatBlock from '../StatBlock';
 
-export class MainContainer extends Component {
+export class GameContainer extends Component {
 
     render() {
 
+        const elementList = [
+            "fire",
+            "water",
+            "air",
+            "earth",
+            "magic"
+        ];
+
+        const processTurn = (element) => {
+            gameData.elements[element].days++;
+            gameData.day++;
+            updatePercents();
+        }
+
+        const updatePercents = () => {
+            elementList.forEach(element => {
+                let elementData = gameData.elements[element];
+                console.log(gameData.day);
+                console.log(elementData.days);
+                console.log(elementData.days / gameData.day);
+                elementData.percent = elementData.days > 0 ? elementData.days / gameData.day : 0;
+                console.log(JSON.stringify(elementData));
+            })
+        }
+
+        const handleClick = (element) => {
+            processTurn(element.toLowerCase());
+        };
+
         let gameData = {
-            fire: {
-                days: 0,
-                percent: 0
-            },
-            water: {
-                days: 0,
-                percent: 0
-            },
-            air: {
-                days: 0,
-                percent: 0
-            },
-            earth: {
-                days: 0,
-                percent: 0
-            },
-            magic: {
-                days: 0,
-                percent: 0
-            },
+            day: 0,
+            elements: {
+                fire: {
+                    days: 0,
+                    percent: 0
+                },
+                water: {
+                    days: 0,
+                    percent: 0
+                },
+                air: {
+                    days: 0,
+                    percent: 0
+                },
+                earth: {
+                    days: 0,
+                    percent: 0
+                },
+                magic: {
+                    days: 0,
+                    percent: 0
+                }
+            }
         };
 
         return (
@@ -40,24 +72,24 @@ export class MainContainer extends Component {
                         <Egg label="Your Egg" />
                     </Col>
                     <Col>
-                        <StatBlock day="1" days="30" gameData={gameData} />
+                        <StatBlock day={gameData.day} days="30" gameData={gameData} />
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <ElementalButton type="Fire" />
+                        <ElementalButton type="Fire" handleClick={handleClick} />
                     </Col>
                     <Col>
-                        <ElementalButton type="Water" />
+                        <ElementalButton type="Water" handleClick={handleClick} />
                     </Col>
                     <Col>
-                        <ElementalButton type="Earth" />
+                        <ElementalButton type="Earth" handleClick={handleClick} />
                     </Col>
                     <Col>
-                        <ElementalButton type="Air" />
+                        <ElementalButton type="Air" handleClick={handleClick} />
                     </Col>
                     <Col>
-                        <ElementalButton type="Magic" />
+                        <ElementalButton type="Magic" handleClick={handleClick} />
                     </Col>
                 </Row>
             </Container>
@@ -65,4 +97,4 @@ export class MainContainer extends Component {
     }
 };
 
-export default MainContainer;
+export default GameContainer;

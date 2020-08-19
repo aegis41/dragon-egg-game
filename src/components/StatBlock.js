@@ -24,28 +24,28 @@ class StatBlock extends React.Component {
                         <tbody>
                             <tr>
                                 <td>Fire</td>
-                                <td>{this.props.gameData.fire.days}</td>
-                                <td>{this.props.gameData.fire.percent}</td>
+                                <td>{this.props.gameData.elements.fire.days}</td>
+                                <td>{this.props.gameData.elements.fire.percent}</td>
                             </tr>
                             <tr>
                                 <td>Water</td>
-                                <td>{this.props.gameData.water.days}</td>
-                                <td>{this.props.gameData.water.percent}</td>
+                                <td>{this.props.gameData.elements.water.days}</td>
+                                <td>{this.props.gameData.elements.water.percent}</td>
                             </tr>
                             <tr>
                                 <td>Air</td>
-                                <td>{this.props.gameData.air.days}</td>
-                                <td>{this.props.gameData.air.percent}</td>
+                                <td>{this.props.gameData.elements.air.days}</td>
+                                <td>{this.props.gameData.elements.air.percent}</td>
                             </tr>
                             <tr>
                                 <td>Earth</td>
-                                <td>{this.props.gameData.earth.days}</td>
-                                <td>{this.props.gameData.earth.percent}</td>
+                                <td>{this.props.gameData.elements.earth.days}</td>
+                                <td>{this.props.gameData.elements.earth.percent}</td>
                             </tr>
                             <tr>
                                 <td>Water</td>
-                                <td>{this.props.gameData.magic.days}</td>
-                                <td>{this.props.gameData.magic.percent}</td>
+                                <td>{this.props.gameData.elements.magic.days}</td>
+                                <td>{this.props.gameData.elements.magic.percent}</td>
                             </tr>
                         </tbody>
                     </Table>
