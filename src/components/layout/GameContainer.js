@@ -10,6 +10,7 @@ export class GameContainer extends Component {
 
     state = {
         day: 0,
+        progress: 0,
         elements: {
             fire: {
                 days: 0,
@@ -54,6 +55,7 @@ export class GameContainer extends Component {
             this.setState({ elements: elements });
             this.setState({ day: this.state.day + 1 });
             updatePercents();
+            calcProgress();
         }
 
         const updatePercents = () => {
@@ -67,6 +69,11 @@ export class GameContainer extends Component {
             processTurn(element.toLowerCase());
         };
 
+        const calcProgress = () => {
+            let progress = this.round(((this.state.day + 1) / 30) * 100, 2);
+            this.setState({ progress: progress });
+        }
+
 
         return (
             <Container className="game-container" fluid>
@@ -75,7 +82,7 @@ export class GameContainer extends Component {
                         <Egg label="Your Egg" />
                     </Col>
                     <Col>
-                        <StatBlock day={this.state.day} days="30" gameData={this.state} />
+                        <StatBlock day={this.state.day} progress={this.state.progress} days="30" gameData={this.state} />
                     </Col>
                 </Row>
                 <Row>

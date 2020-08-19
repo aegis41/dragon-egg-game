@@ -13,7 +13,10 @@ class StatBlock extends React.Component {
             >
                 <Card.Header>Incubation Data</Card.Header>
                 <Card.Body>
-                    <Card.Title>You are on day {this.props.day} of {this.props.days}</Card.Title>
+                    <Card.Title>
+                        You are on day {this.props.day} of {this.props.days}
+                        <ProgressBar striped animated now={this.props.progress} />
+                    </Card.Title>
                     <Table striped bordered hover variant="dark">
                         <thead>
                             <tr>
