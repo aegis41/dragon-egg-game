@@ -6,7 +6,7 @@ class ElementalButton extends React.Component {
     render() {
         return (
             <Button className="btn-fire" size="lg" block variant={this.props.type.toLowerCase()}>
-                This is a { this.props.type} button
+                {this.props.type}
             </Button >
         );
     };

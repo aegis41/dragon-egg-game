@@ -5,23 +5,42 @@ import Col from 'react-bootstrap/Col'
 import Egg from '../Egg';
 import ElementalButton from '../ElementalButton';
 import StatBlock from '../StatBlock';
-import ExtraSpace from '../ExtraSpace';
 
 export class MainContainer extends Component {
+
     render() {
+
+        let gameData = {
+            fire: {
+                days: 0,
+                percent: 0
+            },
+            water: {
+                days: 0,
+                percent: 0
+            },
+            air: {
+                days: 0,
+                percent: 0
+            },
+            earth: {
+                days: 0,
+                percent: 0
+            },
+            magic: {
+                days: 0,
+                percent: 0
+            },
+        };
+
         return (
-            <Container fluid>
+            <Container className="game-container" fluid>
                 <Row>
                     <Col>
                         <Egg label="Your Egg" />
                     </Col>
                     <Col>
-                        <Row>
-                            <StatBlock />
-                        </Row>
-                        <Row>
-                            <ExtraSpace />
-                        </Row>
+                        <StatBlock day="1" days="30" gameData={gameData} />
                     </Col>
                 </Row>
                 <Row>
