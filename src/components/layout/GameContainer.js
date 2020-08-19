@@ -8,6 +8,36 @@ import StatBlock from '../StatBlock';
 
 export class GameContainer extends Component {
 
+    state = {
+        day: 0,
+        elements: {
+            fire: {
+                days: 0,
+                percent: 0
+            },
+            water: {
+                days: 0,
+                percent: 0
+            },
+            air: {
+                days: 0,
+                percent: 0
+            },
+            earth: {
+                days: 0,
+                percent: 0
+            },
+            magic: {
+                days: 0,
+                percent: 0
+            }
+        }
+    };
+
+    round(value, decimals) {
+        return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+    }
+
     render() {
 
         const elementList = [
@@ -19,15 +49,17 @@ export class GameContainer extends Component {
         ];
 
         const processTurn = (element) => {
-            gameData.elements[element].days++;
-            gameData.day++;
+            let elements = this.state.elements;
+            elements[element].days++;
+            this.setState({ elements: elements });
+            this.setState({ day: this.state.day + 1 });
             updatePercents();
         }
 
         const updatePercents = () => {
             elementList.forEach(element => {
-                let elementData = gameData.elements[element];
-                elementData.percent = elementData.days > 0 ? elementData.days / gameData.day : 0;
+                let elementData = this.state.elements[element];
+                elementData.percent = elementData.days > 0 ? (this.round((elementData.days / (this.state.day + 1) * 100), 2)).toString() : 0;
             })
         }
 
@@ -35,31 +67,6 @@ export class GameContainer extends Component {
             processTurn(element.toLowerCase());
         };
 
-        let gameData = {
-            day: 0,
-            elements: {
-                fire: {
-                    days: 0,
-                    percent: 0
-                },
-                water: {
-                    days: 0,
-                    percent: 0
-                },
-                air: {
-                    days: 0,
-                    percent: 0
-                },
-                earth: {
-                    days: 0,
-                    percent: 0
-                },
-                magic: {
-                    days: 0,
-                    percent: 0
-                }
-            }
-        };
 
         return (
             <Container className="game-container" fluid>
@@ -68,7 +75,7 @@ export class GameContainer extends Component {
                         <Egg label="Your Egg" />
                     </Col>
                     <Col>
-                        <StatBlock day={gameData.day} days="30" gameData={gameData} />
+                        <StatBlock day={this.state.day} days="30" gameData={this.state} />
                     </Col>
                 </Row>
                 <Row>
@@ -79,10 +86,10 @@ export class GameContainer extends Component {
                         <ElementalButton type="Water" handleClick={handleClick} />
                     </Col>
                     <Col>
-                        <ElementalButton type="Earth" handleClick={handleClick} />
+                        <ElementalButton type="Air" handleClick={handleClick} />
                     </Col>
                     <Col>
-                        <ElementalButton type="Air" handleClick={handleClick} />
+                        <ElementalButton type="Earth" handleClick={handleClick} />
                     </Col>
                     <Col>
                         <ElementalButton type="Magic" handleClick={handleClick} />

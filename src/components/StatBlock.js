@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card'
 import Table from 'react-bootstrap/Table'
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 class StatBlock extends React.Component {
     render() {
@@ -25,27 +26,27 @@ class StatBlock extends React.Component {
                             <tr>
                                 <td>Fire</td>
                                 <td>{this.props.gameData.elements.fire.days}</td>
-                                <td>{this.props.gameData.elements.fire.percent}</td>
+                                <td><ProgressBar striped animated now={this.props.gameData.elements.fire.percent} /></td>
                             </tr>
                             <tr>
                                 <td>Water</td>
                                 <td>{this.props.gameData.elements.water.days}</td>
-                                <td>{this.props.gameData.elements.water.percent}</td>
+                                <td><ProgressBar striped animated now={this.props.gameData.elements.water.percent} /></td>
                             </tr>
                             <tr>
                                 <td>Air</td>
                                 <td>{this.props.gameData.elements.air.days}</td>
-                                <td>{this.props.gameData.elements.air.percent}</td>
+                                <td><ProgressBar striped animated now={this.props.gameData.elements.air.percent} /></td>
                             </tr>
                             <tr>
                                 <td>Earth</td>
                                 <td>{this.props.gameData.elements.earth.days}</td>
-                                <td>{this.props.gameData.elements.earth.percent}</td>
+                                <td><ProgressBar striped animated now={this.props.gameData.elements.earth.percent} /></td>
                             </tr>
                             <tr>
                                 <td>Water</td>
                                 <td>{this.props.gameData.elements.magic.days}</td>
-                                <td>{this.props.gameData.elements.magic.percent}</td>
+                                <td><ProgressBar striped animated now={this.props.gameData.elements.magic.percent} /></td>
                             </tr>
                         </tbody>
                     </Table>
