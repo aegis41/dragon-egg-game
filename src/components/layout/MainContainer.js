@@ -17,10 +17,10 @@ export class MainContainer extends Component {
                     </Col>
                     <Col>
                         <Row>
-                            <StatBlock></StatBlock>
+                            <StatBlock />
                         </Row>
                         <Row>
-                            <ExtraSpace></ExtraSpace>
+                            <ExtraSpace />
                         </Row>
                     </Col>
                 </Row>

@@ -1,0 +1,28 @@
+button.btn {
+    background-color: unset;
+}
+
+button.btn.btn-fire {
+    background-color: #FF6F00;
+    border: 1px solid black;
+}
+
+button.btn.btn-water {
+    background-color: #19B2BE;
+    border: 1px solid black;
+}
+
+button.btn.btn-air {
+    background-color: #B8B7BA;
+    border: 1px solid black;
+}
+
+button.btn.btn-earth {
+    background-color: #5F9F80;
+    border: 1px solid black;
+}
+
+button.btn.btn-magic {
+    background-color: #9676AC;
+    border: 1px solid black;
+}
