@@ -1,9 +1,11 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card'
 import Table from 'react-bootstrap/Table'
+import Button from 'react-bootstrap/Button';
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
 class StatBlock extends React.Component {
+
     render() {
         return (
             <Card
@@ -56,6 +58,7 @@ class StatBlock extends React.Component {
                     <Card.Text>
                         Track your egg's incubation progress here.
                     </Card.Text>
+                    {this.props.gameOver ? <Button variant="primary">Start a New Game</Button> : null}
                 </Card.Body>
             </Card>
         );

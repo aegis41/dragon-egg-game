@@ -11,6 +11,7 @@ class ElementalButton extends React.Component {
                 size="lg"
                 block
                 variant={this.props.type.toLowerCase()}
+                disabled={this.props.disabled}
             >
                 {this.props.type}
             </Button >

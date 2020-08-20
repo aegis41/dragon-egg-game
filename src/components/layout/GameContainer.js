@@ -10,7 +10,9 @@ export class GameContainer extends Component {
 
     state = {
         day: 0,
+        gameLength: 2,
         progress: 0,
+        gameOver: false,
         elements: {
             fire: {
                 days: 0,
@@ -56,6 +58,9 @@ export class GameContainer extends Component {
             this.setState({ day: this.state.day + 1 });
             updatePercents();
             calcProgress();
+            if (this.state.day + 1 >= this.state.gameLength) {
+                this.setState({ gameOver: true });
+            }
         }
 
         const updatePercents = () => {
@@ -70,7 +75,7 @@ export class GameContainer extends Component {
         };
 
         const calcProgress = () => {
-            let progress = this.round(((this.state.day + 1) / 30) * 100, 2);
+            let progress = this.round(((this.state.day + 1) / this.state.gameLength) * 100, 2);
             this.setState({ progress: progress });
         }
 
@@ -82,24 +87,24 @@ export class GameContainer extends Component {
                         <Egg label="Your Egg" />
                     </Col>
                     <Col>
-                        <StatBlock day={this.state.day} progress={this.state.progress} days="30" gameData={this.state} />
+                        <StatBlock day={this.state.day} progress={this.state.progress} days={this.state.gameLength} gameData={this.state} gameOver={this.state.gameOver} />
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        <ElementalButton type="Fire" handleClick={handleClick} />
+                        <ElementalButton type="Fire" handleClick={handleClick} disabled={this.state.gameOver} />
                     </Col>
                     <Col>
-                        <ElementalButton type="Water" handleClick={handleClick} />
+                        <ElementalButton type="Water" handleClick={handleClick} disabled={this.state.gameOver} />
                     </Col>
                     <Col>
-                        <ElementalButton type="Air" handleClick={handleClick} />
+                        <ElementalButton type="Air" handleClick={handleClick} disabled={this.state.gameOver} />
                     </Col>
                     <Col>
-                        <ElementalButton type="Earth" handleClick={handleClick} />
+                        <ElementalButton type="Earth" handleClick={handleClick} disabled={this.state.gameOver} />
                     </Col>
                     <Col>
-                        <ElementalButton type="Magic" handleClick={handleClick} />
+                        <ElementalButton type="Magic" handleClick={handleClick} disabled={this.state.gameOver} />
                     </Col>
                 </Row>
             </Container>

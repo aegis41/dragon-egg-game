@@ -1,7 +1,3 @@
-button.btn {
-    background-color: unset;
-}
-
 button.btn.btn-fire {
     background-color: #FF6F00;
     border: 1px solid black;
