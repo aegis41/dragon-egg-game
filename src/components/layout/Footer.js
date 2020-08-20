@@ -25,7 +25,7 @@ export class Footer extends Component {
             <div>
                 <div style={phantom} />
                 <div style={style}>
-                    <p>&copy;2020 Noisy Fan Games. All rights reserved.</p>
+                    <p>&copy;2020 Noisy Fan Games. All rights reserved. Designed by Anthony A. Gaff, Developed by Anthony A. Gaff and Joshua Hall</p>
                 </div>
             </div>
         )
