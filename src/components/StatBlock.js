@@ -17,8 +17,8 @@ class StatBlock extends React.Component {
                 <Card.Body>
                     <Card.Title>
                         You are on day {this.props.day} of {this.props.days}
-                        <ProgressBar striped animated now={this.props.progress} />
                     </Card.Title>
+                    <ProgressBar className="game-progress" striped animated now={this.props.progress} />
                     <Table striped bordered hover variant="dark">
                         <thead>
                             <tr>
@@ -58,7 +58,7 @@ class StatBlock extends React.Component {
                     <Card.Text>
                         Track your egg's incubation progress here.
                     </Card.Text>
-                    {this.props.gameOver ? <Button variant="primary">Start a New Game</Button> : null}
+                    {this.props.gameOver ? <Button variant="primary" onClick={() => this.props.startGame()} >Start a New Game</Button> : null}
                 </Card.Body>
             </Card>
         );

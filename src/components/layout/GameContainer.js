@@ -10,7 +10,7 @@ export class GameContainer extends Component {
 
     state = {
         day: 0,
-        gameLength: 2,
+        gameLength: 10,
         progress: 0,
         gameOver: false,
         elements: {
@@ -37,6 +37,7 @@ export class GameContainer extends Component {
         }
     };
 
+
     round(value, decimals) {
         return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
     }
@@ -50,6 +51,35 @@ export class GameContainer extends Component {
             "earth",
             "magic"
         ];
+
+        const startGame = () => {
+            let elementReset = {
+                fire: {
+                    days: 0,
+                    percent: 0
+                },
+                water: {
+                    days: 0,
+                    percent: 0
+                },
+                air: {
+                    days: 0,
+                    percent: 0
+                },
+                earth: {
+                    days: 0,
+                    percent: 0
+                },
+                magic: {
+                    days: 0,
+                    percent: 0
+                }
+            };
+            this.setState({ day: 0 });
+            this.setState({ progress: 0 });
+            this.setState({ gameOver: false });
+            this.setState({ elements: elementReset });
+        };
 
         const processTurn = (element) => {
             let elements = this.state.elements;
@@ -79,7 +109,6 @@ export class GameContainer extends Component {
             this.setState({ progress: progress });
         }
 
-
         return (
             <Container className="game-container" fluid>
                 <Row>
@@ -87,7 +116,14 @@ export class GameContainer extends Component {
                         <Egg label="Your Egg" />
                     </Col>
                     <Col>
-                        <StatBlock day={this.state.day} progress={this.state.progress} days={this.state.gameLength} gameData={this.state} gameOver={this.state.gameOver} />
+                        <StatBlock
+                            day={this.state.day}
+                            progress={this.state.progress}
+                            days={this.state.gameLength}
+                            gameData={this.state}
+                            gameOver={this.state.gameOver}
+                            startGame={startGame}
+                        />
                     </Col>
                 </Row>
                 <Row>

@@ -27,9 +27,15 @@ button.btn.btn-magic {
     border: 1px solid black;
     color: white;
 }
+
 img.egg-image{
     height: 400px;
 }
+
 div.game-container {
     padding-top: 15px;
+}
+
+.game-progress {
+    margin-bottom: 15px;;
 }
