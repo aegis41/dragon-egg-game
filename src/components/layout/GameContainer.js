@@ -113,7 +113,7 @@ export class GameContainer extends Component {
             <Container className="game-container" fluid>
                 <Row>
                     <Col>
-                        <Egg label="Your Egg" />
+                        <Egg label="Your Egg" gameOver={this.state.gameOver} elements={this.state.elements} />
                     </Col>
                     <Col>
                         <StatBlock
