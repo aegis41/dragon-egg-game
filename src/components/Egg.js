@@ -7,21 +7,29 @@ class Egg extends React.Component {
     computeEnding(elements) {
         let result = {
             text: "Your egg is ready. You have incubated a ",
-            egg: ""
+            egg: "egg00"
         };
-        if (elements.fire.percent >= 90) {
-            result.text += "Fire Dragon";
-        } else if (elements.water.percent >= 90) {
-            result.text += "Water Dragon";
-        } else if (elements.air.percent >= 90) {
-            result.text += "Air Dragon";
-        } else if (elements.earth.percent >= 90) {
-            result.text += "Earth Dragon";
-        } else if (elements.magic.percent >= 90) {
-            result.text += "Magic Dragon";
-        } else {
-            result.text = "Your choices have resulted in an inert egg. Please try again";
-        }
+
+        if (this.props.gameOver) {
+            if (elements.fire.percent >= 90) {
+                result.text += "Fire Dragon";
+                result.egg = "egg01"
+            } else if (elements.water.percent >= 90) {
+                result.text += "Water Dragon";
+                result.egg = "egg02"
+            } else if (elements.air.percent >= 90) {
+                result.text += "Air Dragon";
+                result.egg = "egg04"
+            } else if (elements.earth.percent >= 90) {
+                result.text += "Earth Dragon";
+                result.egg = "egg03"
+            } else if (elements.magic.percent >= 90) {
+                result.text += "Magic Dragon";
+                result.egg = "egg05"
+            } else {
+                result.text = "Your choices have resulted in an inert egg. Please try again";
+            }
+        };
         return result;
     };
 
@@ -42,7 +50,7 @@ class Egg extends React.Component {
                 <Card.Header>{this.props.label}</Card.Header>
                 <Card.Body>
                     <Card.Title>Incubation Chamber</Card.Title>
-                    <EggImage egg="egg" />
+                    <EggImage egg={this.computeEnding(this.props.elements).egg} />
                     <Card.Text>
                         {this.getCardText(this.props.gameOver, this.props.elements)}
                     </Card.Text>
