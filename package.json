@@ -12,6 +12,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"
   },
+  "homepage": "https://aegis41.github.io/dragon-egg-game/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
