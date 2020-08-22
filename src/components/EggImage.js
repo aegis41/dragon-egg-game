@@ -1,5 +1,5 @@
 import React from 'react';
-import egg from '../assets/egg.png';
+import egg from '../assets/egg00.png';
 import Image from 'react-bootstrap/Image';
 
 class EggImage extends React.Component {
