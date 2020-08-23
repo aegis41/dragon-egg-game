@@ -31,27 +31,62 @@ class StatBlock extends React.Component {
                             <tr>
                                 <td>Fire</td>
                                 <td>{this.props.gameData.elements.fire.days}</td>
-                                <td><ProgressBar striped animated now={this.props.gameData.elements.fire.percent} label={`${this.props.gameData.elements.fire.percent}%`} /></td>
+                                <td><ProgressBar
+                                    striped
+                                    animated
+                                    variant="fire"
+                                    now={this.props.gameData.elements.fire.percent}
+                                    label={`${this.props.gameData.elements.fire.percent}%`}
+                                />
+                                </td>
                             </tr>
                             <tr>
                                 <td>Water</td>
                                 <td>{this.props.gameData.elements.water.days}</td>
-                                <td><ProgressBar striped animated now={this.props.gameData.elements.water.percent} label={`${this.props.gameData.elements.water.percent}%`} /></td>
+                                <td><ProgressBar
+                                    striped
+                                    animated
+                                    variant="water"
+                                    now={this.props.gameData.elements.water.percent}
+                                    label={`${this.props.gameData.elements.water.percent}%`}
+                                />
+                                </td>
                             </tr>
                             <tr>
                                 <td>Air</td>
                                 <td>{this.props.gameData.elements.air.days}</td>
-                                <td><ProgressBar striped animated now={this.props.gameData.elements.air.percent} label={`${this.props.gameData.elements.air.percent}%`} /></td>
+                                <td><ProgressBar
+                                    striped
+                                    animated
+                                    variant="air"
+                                    now={this.props.gameData.elements.air.percent}
+                                    label={`${this.props.gameData.elements.air.percent}%`}
+                                />
+                                </td>
                             </tr>
                             <tr>
                                 <td>Earth</td>
                                 <td>{this.props.gameData.elements.earth.days}</td>
-                                <td><ProgressBar striped animated now={this.props.gameData.elements.earth.percent} label={`${this.props.gameData.elements.earth.percent}%`} /></td>
+                                <td><ProgressBar
+                                    striped
+                                    animated
+                                    variant="earth"
+                                    now={this.props.gameData.elements.earth.percent}
+                                    label={`${this.props.gameData.elements.earth.percent}%`}
+                                />
+                                </td>
                             </tr>
                             <tr>
                                 <td>Water</td>
                                 <td>{this.props.gameData.elements.magic.days}</td>
-                                <td><ProgressBar striped animated now={this.props.gameData.elements.magic.percent} label={`${this.props.gameData.elements.magic.percent}%`} /></td>
+                                <td><ProgressBar
+                                    striped
+                                    animated
+                                    variant="magic"
+                                    now={this.props.gameData.elements.magic.percent}
+                                    label={`${this.props.gameData.elements.magic.percent}%`}
+                                />
+                                </td>
                             </tr>
                         </tbody>
                     </Table>
