@@ -1,28 +1,28 @@
-button.btn.btn-fire {
+button.btn.btn-fire, .progress-bar.bg-fire {
     background-color: #FF6F00;
     border: 1px solid black;
     color: white;
 }
 
-button.btn.btn-water {
+button.btn.btn-water, .progress-bar.bg-water {
     background-color: #19B2BE;
     border: 1px solid black;
     color: white;
 }
 
-button.btn.btn-air {
+button.btn.btn-air, .progress-bar.bg-air {
     background-color: #B8B7BA;
     border: 1px solid black;
     color: white;
 }
 
-button.btn.btn-earth {
+button.btn.btn-earth, .progress-bar.bg-earth {
     background-color: #5F9F80;
     border: 1px solid black;
     color: white;
 }
 
-button.btn.btn-magic {
+button.btn.btn-magic, .progress-bar.bg-magic {
     background-color: #9676AC;
     border: 1px solid black;
     color: white;
