@@ -7,6 +7,7 @@ class EggImage extends React.Component {
     }
 
     render() {
+        console.log(this.eggList);
         return (
             <Image className="egg-image" src={this.getEggSource(this.props.egg)} alt="Plain Egg" fluid />
         );
