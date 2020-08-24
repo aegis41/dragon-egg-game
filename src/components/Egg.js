@@ -16,11 +16,11 @@ class Egg extends React.Component {
             } else if (elements.water.percent >= 90) {
                 result.text += "Water Dragon";
                 result.egg = "egg02"
-            } else if (elements.air.percent >= 90) {
-                result.text += "Air Dragon";
-                result.egg = "egg03"
             } else if (elements.earth.percent >= 90) {
                 result.text += "Earth Dragon";
+                result.egg = "egg03"
+            } else if (elements.air.percent >= 90) {
+                result.text += "Air Dragon";
                 result.egg = "egg04"
             } else if (elements.magic.percent >= 90) {
                 result.text += "Magic Dragon";
