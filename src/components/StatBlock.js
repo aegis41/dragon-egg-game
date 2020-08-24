@@ -77,7 +77,7 @@ class StatBlock extends React.Component {
                                 </td>
                             </tr>
                             <tr>
-                                <td>Magic</td>
+                                <td>Water</td>
                                 <td>{this.props.gameData.elements.magic.days}</td>
                                 <td><ProgressBar
                                     striped
