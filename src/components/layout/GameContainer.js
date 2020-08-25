@@ -7,10 +7,9 @@ import ElementalButton from '../ElementalButton';
 import StatBlock from '../StatBlock';
 
 export class GameContainer extends Component {
-
-    state = {
+    state = this.props.gameData || {
         day: 0,
-        gameLength: 10,
+        gameLength: 5,
         progress: 0,
         gameOver: false,
         elements: {
@@ -34,7 +33,8 @@ export class GameContainer extends Component {
                 days: 0,
                 percent: 0
             }
-        }
+        },
+        achievements: []
     };
 
     round(value, decimals) {
@@ -78,6 +78,7 @@ export class GameContainer extends Component {
             this.setState({ progress: 0 });
             this.setState({ gameOver: false });
             this.setState({ elements: elementReset });
+            localStorage.setItem('gameData', JSON.stringify(this.state));
         };
 
         const processTurn = (element) => {
@@ -90,6 +91,14 @@ export class GameContainer extends Component {
             if (this.state.day + 1 >= this.state.gameLength) {
                 this.setState({ gameOver: true });
             }
+        }
+
+        const updateProgress = (result) => {
+            let gameData = this.state;
+            if (result) {
+                gameData.achievements.push(result);
+            }
+            localStorage.setItem('gameData', JSON.stringify(gameData));
         }
 
         const updatePercents = () => {
@@ -112,7 +121,13 @@ export class GameContainer extends Component {
             <Container className="game-container" fluid>
                 <Row>
                     <Col>
-                        <Egg label="Your Egg" gameOver={this.state.gameOver} elements={this.state.elements} />
+                        <Egg
+                            label="Your Egg"
+                            gameOver={this.state.gameOver}
+                            elements={this.state.elements}
+                            updateProgress={updateProgress}
+                            gameLength={this.state.gameLength}
+                        />
                     </Col>
                     <Col>
                         <StatBlock

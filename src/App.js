@@ -6,11 +6,13 @@ import Footer from './components/layout/Footer';
 import GameContainer from './components/layout/GameContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+let gameData = JSON.parse(localStorage.getItem('gameData'));
+
 function App() {
   return (
     <div className="App">
       <Header />
-      <GameContainer />
+      <GameContainer gameData={gameData} />
       <Footer />
     </div>
   );
