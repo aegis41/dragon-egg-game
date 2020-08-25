@@ -1,30 +1,60 @@
 button.btn.btn-fire, .progress-bar.bg-fire {
     background-color: #FF6F00;
-    border: 1px solid black;
+    border: 1px solid #a84900;
     color: white;
 }
 
 button.btn.btn-water, .progress-bar.bg-water {
     background-color: #19B2BE;
-    border: 1px solid black;
+    border: 1px solid #106f75;
     color: white;
 }
 
 button.btn.btn-air, .progress-bar.bg-air {
     background-color: #B8B7BA;
-    border: 1px solid black;
+    border: 1px solid #626163;
     color: white;
 }
 
 button.btn.btn-earth, .progress-bar.bg-earth {
     background-color: #5F9F80;
-    border: 1px solid black;
+    border: 1px solid #3d6652;
     color: white;
 }
 
 button.btn.btn-magic, .progress-bar.bg-magic {
     background-color: #9676AC;
-    border: 1px solid black;
+    border: 1px solid #4e3e58;
+    color: white;
+}
+
+button.btn.btn-fire:hover, .progress-bar.bg-fire:hover {
+    background-color: #a84900;
+    border: 1px solid #FF6F00;
+    color: white;
+}
+
+button.btn.btn-water:hover, .progress-bar.bg-water:hover {
+    background-color: #106f75; 
+    border: 1px solid #19B2BE;
+    color: white;
+}
+
+button.btn.btn-air:hover, .progress-bar.bg-air:hover {
+    background-color: #626163;
+    border: 1px solid #B8B7BA;
+    color: white;
+}
+
+button.btn.btn-earth:hover, .progress-bar.bg-earth:hover {
+    background-color: #3d6652;
+    border: 1px solid #5F9F80;
+    color: white;
+}
+
+button.btn.btn-magic:hover, .progress-bar.bg-magic:hover {
+    background-color: #4e3e58;
+    border: 1px solid #9676AC;
     color: white;
 }
 
