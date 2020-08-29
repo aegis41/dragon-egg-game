@@ -12,12 +12,13 @@ export class GameContainer extends Component {
 
     state = JSON.parse(JSON.stringify(StartGameState));
 
+
     round(value, decimals) {
         return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
     };
 
     computeOutcome() {
-        let outcomes = "fire";
+        let outcomes = [];
         outcomes = OutcomeList.forEach(outcome => {
             outcome.tests.forEach(test => {
                 let testElement = this.state.elements[outcome.outcome.toLowerCase()]
@@ -27,14 +28,11 @@ export class GameContainer extends Component {
             })
         })
 
-        // let outcomes = this.outcomeList.filter(outcome => {
-        //     console.log(this.state.elements[outcome.outcome].percent);
-        // });
+
         return outcomes;
     };
 
     render() {
-
         const elementList = [
             "fire",
             "water",
@@ -44,27 +42,32 @@ export class GameContainer extends Component {
         ];
 
         const startGame = () => {
-            console.log(StartGameState.elements)
-            this.setState({ ...StartGameState, elements: StartGameState.elements });
-
+            let restartGame = JSON.parse(JSON.stringify(StartGameState));
+            this.setState({ ...restartGame });
         }
 
         const processTurn = (element) => {
+            let prevState = this.state;
             let elements = this.state.elements;
             elements[element].days++;
-            this.setState({ elements: elements });
-            this.setState({ day: this.state.day + 1 });
-            updatePercents();
+            prevState.elements = elements;
+            prevState.day++;
+            prevState.elements = updatePercents(prevState.elements);
             calcProgress();
-            if (this.state.day + 1 >= this.state.gameLength) {
-                this.setState({ gameOver: true });
-                this.computeOutcome();
+            if (prevState.day + 1 >= prevState.gameLength) {
+                prevState.gameOver = true;
+                // this.computeOutcome();
             }
+            console.log(prevState);
+            this.setState({ ...prevState });
+            // this.setState({ day: this.state.day + 1 });
+            // this.setState({ elements: elements });
         }
 
-        const updatePercents = () => {
-            elementList.forEach(element => {
-                let elementData = this.state.elements[element];
+        const updatePercents = (elements) => {
+            console.log(elements);
+            return elementList.map(element => {
+                let elementData = elements[element];
                 elementData.percent = elementData.days > 0 ? (this.round((elementData.days / (this.state.day + 1) * 100), 2)) : 0;
             })
         }
