@@ -5,89 +5,20 @@ import Col from 'react-bootstrap/Col'
 import Egg from '../Egg';
 import ElementalButton from '../ElementalButton';
 import StatBlock from '../StatBlock';
+import OutcomeList from '../../OutcomeList';
+import StartGameState from '../../StartGameState';
 
 export class GameContainer extends Component {
 
-    state = {
-        day: 0,
-        gameLength: 1,
-        progress: 0,
-        gameOver: false,
-        elements: {
-            fire: {
-                days: 0,
-                percent: 0
-            },
-            water: {
-                days: 0,
-                percent: 0
-            },
-            air: {
-                days: 0,
-                percent: 0
-            },
-            earth: {
-                days: 0,
-                percent: 0
-            },
-            magic: {
-                days: 0,
-                percent: 0
-            }
-        }
-    };
+    state = JSON.parse(JSON.stringify(StartGameState));
 
     round(value, decimals) {
         return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
     };
 
-    outcomeList = [
-        {
-            outcome: "Fire",
-            tests: [
-                {
-                    fire: 90
-                }
-
-            ]
-        },
-        {
-            outcome: "Water",
-            tests: [
-                {
-                    water: 90
-                }
-            ]
-        },
-        {
-            outcome: "Air",
-            tests: [
-                {
-                    air: 90
-                }
-            ]
-        },
-        {
-            outcome: "Earth",
-            tests: [
-                {
-                    earth: 90
-                }
-            ]
-        },
-        {
-            outcome: "Magic",
-            tests: [
-                {
-                    magic: 90
-                }
-            ]
-        }
-    ];
-
     computeOutcome() {
         let outcomes = "fire";
-        outcomes = this.outcomeList.forEach(outcome => {
+        outcomes = OutcomeList.forEach(outcome => {
             outcome.tests.forEach(test => {
                 let testElement = this.state.elements[outcome.outcome.toLowerCase()]
                 if (testElement.percent >= test[testElement]) {
@@ -113,33 +44,10 @@ export class GameContainer extends Component {
         ];
 
         const startGame = () => {
-            let elementReset = {
-                fire: {
-                    days: 0,
-                    percent: 0
-                },
-                water: {
-                    days: 0,
-                    percent: 0
-                },
-                air: {
-                    days: 0,
-                    percent: 0
-                },
-                earth: {
-                    days: 0,
-                    percent: 0
-                },
-                magic: {
-                    days: 0,
-                    percent: 0
-                }
-            };
-            this.setState({ day: 0 });
-            this.setState({ progress: 0 });
-            this.setState({ gameOver: false });
-            this.setState({ elements: elementReset });
-        };
+            console.log(StartGameState.elements)
+            this.setState({ ...StartGameState, elements: StartGameState.elements });
+
+        }
 
         const processTurn = (element) => {
             let elements = this.state.elements;
