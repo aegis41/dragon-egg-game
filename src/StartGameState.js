@@ -1,6 +1,6 @@
 const StartGameState = {
     day: 0,
-    gameLength: 1,
+    gameLength: 5,
     progress: 0,
     gameOver: false,
     elements: {

@@ -53,32 +53,27 @@ export class GameContainer extends Component {
             prevState.elements = elements;
             prevState.day++;
             prevState.elements = updatePercents(prevState.elements);
-            calcProgress();
-            if (prevState.day + 1 >= prevState.gameLength) {
+            prevState.progress = calcProgress(prevState.day, prevState.gameLength);
+            if (prevState.day >= prevState.gameLength) {
                 prevState.gameOver = true;
                 // this.computeOutcome();
             }
-            console.log(prevState);
             this.setState({ ...prevState });
-            // this.setState({ day: this.state.day + 1 });
-            // this.setState({ elements: elements });
         }
 
         const updatePercents = (elements) => {
-            console.log(elements);
-            return elementList.map(element => {
-                let elementData = elements[element];
-                elementData.percent = elementData.days > 0 ? (this.round((elementData.days / (this.state.day + 1) * 100), 2)) : 0;
+            elementList.forEach(element => {
+                elements[element].percent = elements[element].days > 0 ? (this.round((elements[element].days / (this.state.day) * 100), 2)) : 0;
             })
+            return elements;
         }
 
         const handleClick = (element) => {
             processTurn(element.toLowerCase());
         };
 
-        const calcProgress = () => {
-            let progress = this.round(((this.state.day + 1) / this.state.gameLength) * 100, 2);
-            this.setState({ progress: progress });
+        const calcProgress = (day, gameLength) => {
+            return this.round(((day) / gameLength) * 100, 2);
         }
 
         return (
