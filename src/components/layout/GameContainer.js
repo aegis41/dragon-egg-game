@@ -36,14 +36,15 @@ export class GameContainer extends Component {
 
     getCardText() {
         if (this.state.gameOver && this.state.outcomes) {
-            return "Your egg is ready. You have incubated a " + this.state.outcomes[0].outcome.toUpperCase() + " dragon.";
+            let ending = this.state.outcomes[0].outcome === "Dragon Lord" ? "!!" : " dragon.";
+            return "Your egg is ready. You have incubated a " + this.state.outcomes[0].outcome.toUpperCase() + ending;
         }
         return "You have 30 days to incubate your egg. Choose an element below for each day to see what hatches.";
     }
 
     getEgg() {
         if (this.state.gameOver && this.state.outcomes) {
-            return this.state.outcomes[0].outcome;
+            return this.state.outcomes[0].outcome.replace(" ", "-");
         }
         return "egg";
     }
