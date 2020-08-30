@@ -149,6 +149,26 @@ const outcomeList = [
                 magic: 45
             }
         ]
+    },
+    {
+        outcome: "Dragon Lord",
+        tests: [
+            {
+                fire: 20
+            },
+            {
+                water: 20
+            },
+            {
+                air: 20
+            },
+            {
+                earth: 20
+            },
+            {
+                magic: 20
+            }
+        ]
     }
 ];
 
