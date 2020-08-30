@@ -5,44 +5,50 @@ import Col from 'react-bootstrap/Col'
 import Egg from '../Egg';
 import ElementalButton from '../ElementalButton';
 import StatBlock from '../StatBlock';
+import OutcomeList from '../../OutcomeList';
+import StartGameState from '../../StartGameState';
 
 export class GameContainer extends Component {
 
-    state = {
-        day: 0,
-        gameLength: 10,
-        progress: 0,
-        gameOver: false,
-        elements: {
-            fire: {
-                days: 0,
-                percent: 0
-            },
-            water: {
-                days: 0,
-                percent: 0
-            },
-            air: {
-                days: 0,
-                percent: 0
-            },
-            earth: {
-                days: 0,
-                percent: 0
-            },
-            magic: {
-                days: 0,
-                percent: 0
-            }
-        }
-    };
+    state = JSON.parse(JSON.stringify(StartGameState));
+
 
     round(value, decimals) {
         return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+    };
+
+    computeOutcome(elements) {
+        let outcomes = OutcomeList.filter((outcome) => {
+            let testArray = [];
+            outcome.tests.forEach((test) => {
+                for (const [key, value] of Object.entries(test)) {
+                    testArray.push(elements[key].percent >= value);
+                }
+            });
+            if (testArray.every(result => result === true)) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+        return outcomes;
+    };
+
+    getCardText() {
+        if (this.state.gameOver && this.state.outcomes) {
+            return "Your egg is ready. You have incubated a " + this.state.outcomes[0].outcome.toUpperCase() + " dragon.";
+        }
+        return "You have 30 days to incubate your egg. Choose an element below for each day to see what hatches.";
+    }
+
+    getEgg() {
+        if (this.state.gameOver && this.state.outcomes) {
+            return this.state.outcomes[0].outcome;
+        }
+        return "egg";
     }
 
     render() {
-
         const elementList = [
             "fire",
             "water",
@@ -52,67 +58,48 @@ export class GameContainer extends Component {
         ];
 
         const startGame = () => {
-            let elementReset = {
-                fire: {
-                    days: 0,
-                    percent: 0
-                },
-                water: {
-                    days: 0,
-                    percent: 0
-                },
-                air: {
-                    days: 0,
-                    percent: 0
-                },
-                earth: {
-                    days: 0,
-                    percent: 0
-                },
-                magic: {
-                    days: 0,
-                    percent: 0
-                }
-            };
-            this.setState({ day: 0 });
-            this.setState({ progress: 0 });
-            this.setState({ gameOver: false });
-            this.setState({ elements: elementReset });
-        };
-
-        const processTurn = (element) => {
-            let elements = this.state.elements;
-            elements[element].days++;
-            this.setState({ elements: elements });
-            this.setState({ day: this.state.day + 1 });
-            updatePercents();
-            calcProgress();
-            if (this.state.day + 1 >= this.state.gameLength) {
-                this.setState({ gameOver: true });
-            }
+            let restartGame = JSON.parse(JSON.stringify(StartGameState));
+            this.setState({ ...restartGame });
         }
 
-        const updatePercents = () => {
+        const processTurn = (element) => {
+            let prevState = this.state;
+            let elements = this.state.elements;
+            elements[element].days++;
+            prevState.elements = elements;
+            prevState.day++;
+            prevState.elements = updatePercents(prevState.elements);
+            prevState.progress = calcProgress(prevState.day, prevState.gameLength);
+            if (prevState.day >= prevState.gameLength) {
+                prevState.gameOver = true;
+                prevState.outcomes = this.computeOutcome(prevState.elements);
+            }
+            this.setState({ ...prevState });
+        }
+
+        const updatePercents = (elements) => {
             elementList.forEach(element => {
-                let elementData = this.state.elements[element];
-                elementData.percent = elementData.days > 0 ? (this.round((elementData.days / (this.state.day + 1) * 100), 2)).toString() : 0;
+                elements[element].percent = elements[element].days > 0 ? (this.round((elements[element].days / (this.state.day) * 100), 2)) : 0;
             })
+            return elements;
         }
 
         const handleClick = (element) => {
             processTurn(element.toLowerCase());
         };
 
-        const calcProgress = () => {
-            let progress = this.round(((this.state.day + 1) / this.state.gameLength) * 100, 2);
-            this.setState({ progress: progress });
+        const calcProgress = (day, gameLength) => {
+            return this.round(((day) / gameLength) * 100, 2);
         }
 
         return (
             <Container className="game-container" fluid>
                 <Row>
                     <Col>
-                        <Egg label="Your Egg" gameOver={this.state.gameOver} elements={this.state.elements} />
+                        <Egg label="Your Egg"
+                            cardText={this.getCardText()}
+                            egg={this.getEgg()}
+                        />
                     </Col>
                     <Col>
                         <StatBlock
