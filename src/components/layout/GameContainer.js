@@ -17,18 +17,20 @@ export class GameContainer extends Component {
         return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
     };
 
-    computeOutcome() {
-        let outcomes = [];
-        outcomes = OutcomeList.forEach(outcome => {
-            outcome.tests.forEach(test => {
-                let testElement = this.state.elements[outcome.outcome.toLowerCase()]
-                if (testElement.percent >= test[testElement]) {
-                    console.log(`Passed test ${testElement} : ${testElement.percent}`);
+    computeOutcome(elements) {
+        let outcomes = OutcomeList.filter((outcome) => {
+            let testArray = [];
+            outcome.tests.forEach((test) => {
+                for (const [key, value] of Object.entries(test)) {
+                    testArray.push(elements[key].percent >= value);
                 }
-            })
-        })
-
-
+            });
+            if (testArray.every(result => result === true)) {
+                return true;
+            } else {
+                return false;
+            }
+        });
         return outcomes;
     };
 
@@ -56,8 +58,9 @@ export class GameContainer extends Component {
             prevState.progress = calcProgress(prevState.day, prevState.gameLength);
             if (prevState.day >= prevState.gameLength) {
                 prevState.gameOver = true;
-                // this.computeOutcome();
+                prevState.outcomes = this.computeOutcome(prevState.elements);
             }
+            console.log(prevState.outcomes);
             this.setState({ ...prevState });
         }
 
