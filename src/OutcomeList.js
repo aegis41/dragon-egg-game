@@ -146,7 +146,7 @@ const outcomeList = [
                 earth: 40
             },
             {
-                magic: 40
+                magic: 45
             }
         ]
     }

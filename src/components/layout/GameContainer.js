@@ -34,6 +34,20 @@ export class GameContainer extends Component {
         return outcomes;
     };
 
+    getCardText() {
+        if (this.state.gameOver && this.state.outcomes) {
+            return "Your egg is ready. You have incubated a " + this.state.outcomes[0].outcome.toUpperCase() + " dragon.";
+        }
+        return "You have 30 days to incubate your egg. Choose an element below for each day to see what hatches.";
+    }
+
+    getEgg() {
+        if (this.state.gameOver && this.state.outcomes) {
+            return this.state.outcomes[0].outcome;
+        }
+        return "egg";
+    }
+
     render() {
         const elementList = [
             "fire",
@@ -60,7 +74,6 @@ export class GameContainer extends Component {
                 prevState.gameOver = true;
                 prevState.outcomes = this.computeOutcome(prevState.elements);
             }
-            console.log(prevState.outcomes);
             this.setState({ ...prevState });
         }
 
@@ -83,7 +96,10 @@ export class GameContainer extends Component {
             <Container className="game-container" fluid>
                 <Row>
                     <Col>
-                        <Egg label="Your Egg" gameOver={this.state.gameOver} elements={this.state.elements} />
+                        <Egg label="Your Egg"
+                            cardText={this.getCardText()}
+                            egg={this.getEgg()}
+                        />
                     </Col>
                     <Col>
                         <StatBlock
