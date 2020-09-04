@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "510d2aa89ea6c5ea3d8d6e556efd3ceb",
+    "revision": "3cb839e2f5ddd1005eee9ca1a0b09791",
     "url": "/dragon-egg-game/index.html"
   },
   {
-    "revision": "e730b970bd3631be16a3",
-    "url": "/dragon-egg-game/static/css/2.9b79e585.chunk.css"
+    "revision": "8b6b77ab5b3c5b24707e",
+    "url": "/dragon-egg-game/static/css/2.d9ad5f5c.chunk.css"
   },
   {
-    "revision": "a642894467adacca0964",
-    "url": "/dragon-egg-game/static/css/main.8cd93cc1.chunk.css"
+    "revision": "094c61d28daadfef2536",
+    "url": "/dragon-egg-game/static/css/main.49bb0277.chunk.css"
   },
   {
-    "revision": "e730b970bd3631be16a3",
+    "revision": "8b6b77ab5b3c5b24707e",
     "url": "/dragon-egg-game/static/js/2.795a3cd9.chunk.js"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dragon-egg-game/static/js/2.795a3cd9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a642894467adacca0964",
-    "url": "/dragon-egg-game/static/js/main.7194775c.chunk.js"
+    "revision": "094c61d28daadfef2536",
+    "url": "/dragon-egg-game/static/js/main.c8b42e97.chunk.js"
   },
   {
     "revision": "9408293780b145c14783",

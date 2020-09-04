@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/dragon-egg-game/static/css/main.8cd93cc1.chunk.css",
-    "main.js": "/dragon-egg-game/static/js/main.7194775c.chunk.js",
-    "main.js.map": "/dragon-egg-game/static/js/main.7194775c.chunk.js.map",
+    "main.css": "/dragon-egg-game/static/css/main.49bb0277.chunk.css",
+    "main.js": "/dragon-egg-game/static/js/main.c8b42e97.chunk.js",
+    "main.js.map": "/dragon-egg-game/static/js/main.c8b42e97.chunk.js.map",
     "runtime-main.js": "/dragon-egg-game/static/js/runtime-main.622b3328.js",
     "runtime-main.js.map": "/dragon-egg-game/static/js/runtime-main.622b3328.js.map",
-    "static/css/2.9b79e585.chunk.css": "/dragon-egg-game/static/css/2.9b79e585.chunk.css",
+    "static/css/2.d9ad5f5c.chunk.css": "/dragon-egg-game/static/css/2.d9ad5f5c.chunk.css",
     "static/js/2.795a3cd9.chunk.js": "/dragon-egg-game/static/js/2.795a3cd9.chunk.js",
     "static/js/2.795a3cd9.chunk.js.map": "/dragon-egg-game/static/js/2.795a3cd9.chunk.js.map",
     "index.html": "/dragon-egg-game/index.html",
-    "precache-manifest.6213073f613a86511cf547a0531db9bf.js": "/dragon-egg-game/precache-manifest.6213073f613a86511cf547a0531db9bf.js",
+    "precache-manifest.6383dc6e901acf8d27cefd1d0ce89c3f.js": "/dragon-egg-game/precache-manifest.6383dc6e901acf8d27cefd1d0ce89c3f.js",
     "service-worker.js": "/dragon-egg-game/service-worker.js",
-    "static/css/2.9b79e585.chunk.css.map": "/dragon-egg-game/static/css/2.9b79e585.chunk.css.map",
-    "static/css/main.8cd93cc1.chunk.css.map": "/dragon-egg-game/static/css/main.8cd93cc1.chunk.css.map",
+    "static/css/2.d9ad5f5c.chunk.css.map": "/dragon-egg-game/static/css/2.d9ad5f5c.chunk.css.map",
+    "static/css/main.49bb0277.chunk.css.map": "/dragon-egg-game/static/css/main.49bb0277.chunk.css.map",
     "static/js/2.795a3cd9.chunk.js.LICENSE.txt": "/dragon-egg-game/static/js/2.795a3cd9.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.622b3328.js",
-    "static/css/2.9b79e585.chunk.css",
+    "static/css/2.d9ad5f5c.chunk.css",
     "static/js/2.795a3cd9.chunk.js",
-    "static/css/main.8cd93cc1.chunk.css",
-    "static/js/main.7194775c.chunk.js"
+    "static/css/main.49bb0277.chunk.css",
+    "static/js/main.c8b42e97.chunk.js"
   ]
 }

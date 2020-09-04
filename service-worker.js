@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/dragon-egg-game/precache-manifest.6213073f613a86511cf547a0531db9bf.js"
+  "/dragon-egg-game/precache-manifest.6383dc6e901acf8d27cefd1d0ce89c3f.js"
 );
 
 self.addEventListener('message', (event) => {
