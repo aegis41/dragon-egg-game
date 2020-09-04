@@ -31,13 +31,22 @@ export class GameContainer extends Component {
                 return false;
             }
         });
-        return outcomes;
+        return outcomes.length > 0 ? outcomes : [{ outcome: "inert" }];
     };
 
     getCardText() {
         if (this.state.gameOver && this.state.outcomes) {
-            let ending = this.state.outcomes[0].outcome === "Dragon Lord" ? "!!" : " dragon.";
-            return "Your egg is ready. You have incubated a " + this.state.outcomes[0].outcome.toUpperCase() + ending;
+            let outcome = this.state.outcomes[0].outcome;
+            console.log(outcome);
+            let ending;
+            if (outcome === "Dragon Lord") {
+                ending = "!!";
+            } else if (outcome === "inert") {
+                ending = " egg.";
+            } else {
+                ending = " dragon.";
+            }
+            return `Your egg is ready. You have incubated a ${outcome.toUpperCase()}${ending}`;
         }
         return "You have 30 days to incubate your egg. Choose an element below for each day to see what hatches.";
     }
