@@ -151,7 +151,49 @@ const outcomeList = [
         ]
     },
     {
-        outcome: "Dragon Lord",
+        outcome: "Poison",
+        tests: [
+            {
+                fire: 20
+            },
+            {
+                water: 20
+            },
+            {
+                earth: 20
+            }
+        ]
+    },
+    {
+        outcome: "Acid",
+        tests: [
+            {
+                fire: 20
+            },
+            {
+                water: 20
+            },
+            {
+                air: 20
+            }
+        ]
+    },
+    {
+        outcome: "Electric",
+        tests: [
+            {
+                water: 30
+            },
+            {
+                air: 20
+            },
+            {
+                magic: 30
+            }
+        ]
+    },
+    {
+        outcome: "Crystal",
         tests: [
             {
                 fire: 20
@@ -167,6 +209,26 @@ const outcomeList = [
             },
             {
                 magic: 20
+            }
+        ]
+    },
+    {
+        outcome: "Dragon Lord",
+        tests: [
+            {
+                fire: 10
+            },
+            {
+                water: 10
+            },
+            {
+                air: 10
+            },
+            {
+                earth: 10
+            },
+            {
+                magic: 60
             }
         ]
     }
